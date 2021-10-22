@@ -1,9 +1,9 @@
-import styles from "./maroCard.module.css";
+import styles from "./marioCard.module.css";
 import { createElement } from "../lib/elements";
 
-export default function createMarioCard() {
+export function createMarioCard() {
   const marioCard = createElement(
-    "card",
+    "div",
     {
       className: styles.card,
     },
