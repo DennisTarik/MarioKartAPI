@@ -1,0 +1,15 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  text-align: center;
+  background-color: var(--color-secondary);
+  font-family: var(--font-family-headline);
+  width: 80%;
+}
+
+.titleLine {
+  grid-column: 1/ span 2;
+  border-bottom: 5px black ridge;
+  padding: 1rem;
+}

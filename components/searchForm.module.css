@@ -1,0 +1,18 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem;
+  background-color: var(--color-action);
+}
+
+.submit {
+  font-family: var(--font-family-headline);
+  font-size: 1rem;
+}
+
+.input {
+  display: grid;
+  text-align: center;
+  font-family: var(--font-family-headline);
+  font-size: 1rem;
+}

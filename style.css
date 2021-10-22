@@ -1,8 +1,52 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  /*  Colors */
+  --color-primary: #f00300;
+  --color-secondary: #2898eb;
+  --color-action: #ebeb1c;
+
+  /* Fonts */
+  --font-family-headline: 'Press Start 2P', sans-serif;
+  --font-family-text: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-primary);
+}
+
+.header {
+  display: grid;
+  place-items: center;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 2rem;
+  font-size: 2rem;
+  background-color: var(--color-secondary);
+  font-family: var(--font-family-headline);
+}
+
+.main {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  row-gap: 2rem;
+  margin: 2rem;
+  font-size: 1.5rem;
+  background-color: var(--color-action);
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  margin: 2rem;
+  font-size: 2rem;
+  background-color: var(--color-secondary);
+  font-family: var(--font-family-headline);
 }

@@ -1,6 +1,37 @@
-import './style.css'
+import "./style.css";
+import { createHeaderElement } from "./lib/headerElement";
+import { createMainElement } from "./lib/mainElement";
+import { createFooterElement } from "./lib/footerElement";
+import { createMarioCard } from "./components/marioCard";
+import { fetchCharacters } from "./lib/fetchCharacter";
+import createSearchElement from "./components/searchForm";
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+async function renderApp() {
+  const appElement = document.querySelector("#app");
+
+  const headerComponent = createHeaderElement();
+
+  const searchForm = createSearchElement();
+
+  const mainComponent = createMainElement();
+
+  const characterCards = await fetchCharacters();
+
+  const marioCard = characterCards.map((character) =>
+    createMarioCard(character)
+  );
+
+  console.log(characterCards);
+
+  const footerComponent = createFooterElement();
+
+  appElement.append(
+    headerComponent,
+    searchForm,
+    mainComponent,
+    footerComponent
+  );
+  mainComponent.append(...marioCard);
+}
+
+renderApp();
