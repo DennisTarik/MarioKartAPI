@@ -6,7 +6,7 @@ import { createMarioCard } from "./components/marioCard";
 import { fetchCharacters } from "./lib/fetchCharacter";
 import createSearchElement from "./components/searchForm";
 
-function renderApp() {
+async function renderApp() {
   const appElement = document.querySelector("#app");
 
   const headerComponent = createHeaderElement();
@@ -15,11 +15,12 @@ function renderApp() {
 
   const mainComponent = createMainElement();
 
-  const marioCard = createMarioCard();
+  const characterCards = await fetchCharacters();
 
-  const characterCards = fetchCharacters(
-    "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers"
+  const marioCard = characterCards.map((character) =>
+    createMarioCard(character)
   );
+
   console.log(characterCards);
 
   const footerComponent = createFooterElement();
@@ -30,7 +31,7 @@ function renderApp() {
     mainComponent,
     footerComponent
   );
-  mainComponent.append(marioCard);
+  mainComponent.append(...marioCard);
 }
 
 renderApp();

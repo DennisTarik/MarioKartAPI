@@ -23,29 +23,30 @@ body {
 }
 
 .header {
-  margin: 2rem;
   display: grid;
-  justify-content: center;
+  place-items: center;
+  text-align: center;
+  margin: 2rem;
+  font-size: 2rem;
   background-color: var(--color-secondary);
-  font-size: 3rem;
   font-family: var(--font-family-headline);
 }
 
 .main {
   display: grid;
   place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  row-gap: 2rem;
   margin: 2rem;
+  font-size: 1.5rem;
   background-color: var(--color-action);
-  font-size: 3rem;
-  height: 80vh;
-  font-family: var(--font-family-text);
 }
 
 .footer {
   display: grid;
   justify-content: center;
   margin: 2rem;
-  background-color: var(--color-secondary);
   font-size: 2rem;
-  font-family: var(--font-family-text);
+  background-color: var(--color-secondary);
+  font-family: var(--font-family-headline);
 }
