@@ -1,0 +1,7 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem;
+  background-color: var(--color-action);
+  font-family: var(--font-family-text);
+}
