@@ -1,1 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto&display=swap');
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  /*  Colors */
+  --color-primary: #f00300;
+  --color-secondary: #2898eb;
+  --color-action: #ebeb1c;
+
+  /* Fonts */
+  --font-family-headline: 'Press Start 2P', sans-serif;
+  --font-family-text: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  display: grid;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  font-size: 4rem;
+  font-family: var(--font-family-headline);
+}
+
+.main {
+  display: grid;
+  place-items: center;
+  background-color: var(--color-primary);
+  font-size: 3rem;
+  height: 80vh;
+  font-family: var(--font-family-text);
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  background-color: var(--color-action);
+  font-size: 2rem;
+  font-family: var(--font-family-text);
+}
