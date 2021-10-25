@@ -25,12 +25,14 @@ async function renderApp() {
 
   async function handleSubmit(searchQuery) {
     const response = await fetchCharacters(
-      "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers/name?q=" +
+      "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers/name_contains?q=" +
         searchQuery
     );
-    const searchCard = createMarioCard(response);
+    const searchCard = response.map((cardFetchElement) =>
+      createMarioCard(cardFetchElement)
+    );
     mainComponent.innerHTML = "";
-    mainComponent.append(searchCard);
+    mainComponent.append(...searchCard);
   }
 
   const footerComponent = createFooterElement();
