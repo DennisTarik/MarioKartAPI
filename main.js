@@ -11,17 +11,27 @@ async function renderApp() {
 
   const headerComponent = createHeaderElement();
 
-  const searchForm = createSearchElement();
+  const searchForm = createSearchElement(handleSubmit);
 
   const mainComponent = createMainElement();
 
-  const characterCards = await fetchCharacters();
+  const characterList = await fetchCharacters(
+    "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers"
+  );
 
-  const marioCard = characterCards.map((character) =>
+  const marioCards = characterList.map((character) =>
     createMarioCard(character)
   );
 
-  console.log(characterCards);
+  async function handleSubmit(searchQuery) {
+    const response = await fetchCharacters(
+      "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers/name?q=" +
+        searchQuery
+    );
+    const searchCard = createMarioCard(response);
+    mainComponent.innerHTML = "";
+    mainComponent.append(searchCard);
+  }
 
   const footerComponent = createFooterElement();
 
@@ -31,7 +41,7 @@ async function renderApp() {
     mainComponent,
     footerComponent
   );
-  mainComponent.append(...marioCard);
+  mainComponent.append(...marioCards);
 }
 
 renderApp();
