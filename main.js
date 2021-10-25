@@ -1,9 +1,10 @@
 import "./style.css";
-import { createHeaderElement } from "./lib/headerElement";
-import { createMainElement } from "./lib/mainElement";
-import { createFooterElement } from "./lib/footerElement";
-import { createMarioCard } from "./components/marioCard";
+import { createHeaderElement } from "./components/headerElement";
 import { fetchCharacters } from "./lib/fetchCharacter";
+import { handleSubmit } from "./lib/handleSubmit";
+import { createMainElement } from "./components/mainElement";
+import { createFooterElement } from "./components/footerElement";
+import { createMarioCard } from "./components/marioCard";
 import createSearchElement from "./components/searchForm";
 
 async function renderApp() {
@@ -22,18 +23,6 @@ async function renderApp() {
   const marioCards = characterList.map((character) =>
     createMarioCard(character)
   );
-
-  async function handleSubmit(searchQuery) {
-    const response = await fetchCharacters(
-      "https://mario-kart-tour-api.herokuapp.com/api/v1/drivers/name_contains?q=" +
-        searchQuery
-    );
-    const searchCard = response.map((cardFetchElement) =>
-      createMarioCard(cardFetchElement)
-    );
-    mainComponent.innerHTML = "";
-    mainComponent.append(...searchCard);
-  }
 
   const footerComponent = createFooterElement();
 
